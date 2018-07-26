@@ -1,7 +1,8 @@
 var value = (value + "=");
 console.log("\n\n**********************************************\n\n");
 console.log("--------------------ORIGINAL COOKIES--------------------");
-/*pulls all cookies from the current tab
+/*pulls all cookies from the current tab.
+Uses a WrappedJSObject to work at the browser level.
 NOTE - I would like to see about pulling more 
 than just the current tab's cookies in the future.*/
 var decodedCookie = window.wrappedJSObject.document.cookie;
@@ -36,6 +37,14 @@ for (var i=0;i<allcookie.length;i++)
 		trimspace = "euconsent=00000000000000000000000000000000000;";
 		allcookie[i] = trimspace.trim();
 	}
+	else if (incone == " gdprconsent")
+	{
+		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
+		found = true;
+		console.log("****************CONSENT COOKIE FOUND****************\n\n");
+		trimspace = "gdprconsent=0;";
+		allcookie[i] = trimspace.trim();
+	}
 	else
 	{
 		/*Otherwise just cleans it up*/
@@ -66,6 +75,7 @@ messenger = {
     document.cookie = message;
   }
 };
+
   window.wrappedJSObject.messenger = cloneInto(
   messenger,
   window,

@@ -64,7 +64,6 @@ console.log(trimspace);
 messenger = {
   notify: function(message) {
     document.cookie = message;
-	console.log(document.cookie);
   }
 };
   window.wrappedJSObject.messenger = cloneInto(

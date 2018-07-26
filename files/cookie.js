@@ -10,12 +10,16 @@ document.addEventListener("click", (e) => {
 			file: "write-cookie.js"
 			});
 		}
+		//These functions are for when cookies are cleared (see bottom)
 		function onRemoved() {
 			console.log("Removed!");
 		}
 		function onError(error) {
 			console.error(error);
 		}
+		/*Logs all cookies to console. Shows all cookie data,
+		as compared to how document.cookie in file write-cookie.js
+		shows just name=value*/
 		function logCookies(cookies) 
 		{
 			if (cookies === undefined || cookies.length == 0) {
@@ -34,7 +38,8 @@ document.addEventListener("click", (e) => {
 			}
 		}
 		//To be used later. This is for valigation and cookie modification.
-		//browser.webNavigation.onBeforeNavigate.addListener(logCookies);
+		//*******browser.webNavigation.onBeforeNavigate.addListener(logCookies);
+		
 		/*click "LOG COOKIES"*/
 		if (e.target.classList.contains("log")) 
 		{

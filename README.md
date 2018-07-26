@@ -1,6 +1,6 @@
  # Global Consent Cookie Sandbox
 
- This public repository is used to publish a FireFox web extension that is used to delete cookies with the "cookies" JavaScript API.
+ This public repository is used to publish a FireFox web extension.
  
  ## How to install this web extension
  
@@ -17,7 +17,14 @@
  
  APIs used for the project are provided by Mozilla MDN and can be found at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API
  
+ APIs used:
+ 
+ -cookies<br />
+ -tabs<br />
+ -browsingData (for debugging)
+ 
  ## Licensing and Copyright
+ 
  All source code copyright is retained by the contributors. All contriubtions and source code are licensed under the MIT licence. 
  
  Copyright (c) 2018 Cookie-Web-Extension Contributors

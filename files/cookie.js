@@ -33,16 +33,20 @@ document.addEventListener("click", (e) => {
 				}
 			}
 		}
-		browser.webNavigation.onBeforeNavigate.addListener(logCookies);
+		//To be used later. This is for valigation and cookie modification.
+		//browser.webNavigation.onBeforeNavigate.addListener(logCookies);
+		/*click "LOG COOKIES"*/
 		if (e.target.classList.contains("log")) 
 		{
 			var getting = browser.cookies.getAll({});
 			getting.then(logCookies);
 		}
+		/*click "CONSENT COOKIES"*/
 		if (e.target.classList.contains("consent")) 
 		{
 			consentCookies();
 		}
+		/*click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES*/
 		else if (e.target.classList.contains("clear")) 
 		{
 			browser.browsingData.removeCookies({}).

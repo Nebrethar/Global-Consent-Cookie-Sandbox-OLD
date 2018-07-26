@@ -4,11 +4,11 @@ console.log("--------------------ORIGINAL COOKIES--------------------");
 /*pulls all cookies from the current tab
 NOTE - I would like to see about pulling more 
 than just the current tab's cookies in the future.*/
-var decodedCookie = document.cookie;
+var decodedCookie = window.wrappedJSObject.document.cookie;
 /*separates cookies into an array by their separating ";"*/
 var allcookie = decodedCookie.split(';');
 /*Just shows the current state of the cookie.*/
-console.log(document.cookie + "\n");
+console.log(window.wrappedJSObject.document.cookie + "\n");
 /*For if a GVCC is found (by name "euconsent")*/
 var found = false;
 /*counter for logging*/
@@ -26,14 +26,14 @@ for (var i=0;i<allcookie.length;i++)
 	var incsplit = inc.split('=');
 	/*Name and value. HERE THEY ARE IN FORMAT NAME=VALUE*/
 	var incone = incsplit[0];
-	var inctwo = incsplit[1];
+	//var inctwo = incsplit[1];
 	//console.log(incone + " ? " + incthree); 
 	if (incone == " euconsent")
 	{
 		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 		found = true;
 		console.log("****************CONSENT COOKIE FOUND****************\n\n");
-		trimspace = "euconsent=00000000000000000000000000000000000;"
+		trimspace = "euconsent=00000000000000000000000000000000000;";
 		allcookie[i] = trimspace.trim();
 	}
 	else
@@ -53,15 +53,27 @@ console.log("\n");
 Logs every cookie going in as a separate document.cookie and seems to
 have an issue overwriting cookies that website has put in place.
 It can overwrite its own cookies.*/
-document.cookie = "startmarker=****THIS IS THE START OF THE EDITED COOKIE STRING****";
+window.wrappedJSObject.document.cookie = "startmarker=****THIS IS THE START OF THE EDITED COOKIE STRING****";
+var messenger;
 for (var i=0;i<allcookie.length;i++)
 {
 console.log("*************************************************");
 trimspace = allcookie[i];
 console.log(trimspace);
-document.cookie = trimspace.trim();
+//window.wrappedJSObject.document.cookie = trimspace.trim();
+messenger = {
+  notify: function(message) {
+    document.cookie = message;
+	console.log(document.cookie);
+  }
+};
+  window.wrappedJSObject.messenger = cloneInto(
+  messenger,
+  window,
+  {cloneFunctions: true});
+  window.wrappedJSObject.messenger.notify(trimspace.trim());
 }
-document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
 }
+window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
 console.log("--------------------FINAL COOKIES--------------------\n");
-console.log(document.cookie);
+console.log(window.wrappedJSObject.document.cookie);

@@ -2,7 +2,7 @@ var value = (value + "=");
 console.log("\n\n**********************************************\n\n");
 console.log("--------------------ORIGINAL COOKIES--------------------");
 /*pulls all cookies from the current tab
-note - I would like to see about pulling more 
+NOTE - I would like to see about pulling more 
 than just the current tab's cookies in the future.*/
 var decodedCookie = document.cookie;
 /*separates cookies into an array by their separating ";"*/
@@ -24,7 +24,7 @@ for (var i=0;i<allcookie.length;i++)
 	console.log("\n---------------COOKIE " + j + "---------------");
 	console.log(inc);
 	var incsplit = inc.split('=');
-	/*Name and value. HERE THEY ARE IN FORMATE NAME=VALUE*/
+	/*Name and value. HERE THEY ARE IN FORMAT NAME=VALUE*/
 	var incone = incsplit[0];
 	var inctwo = incsplit[1];
 	//console.log(incone + " ? " + incthree); 
@@ -50,9 +50,9 @@ if (found)
 console.log("\n--------------------REPLACE THE VALUE--------------------\n");
 console.log("\n");
 /*Replaces the cookie value with the edited cookie string. (It is supposed to).
-Notes every cookie going in as a separate document.cookie and seems to
+Logs every cookie going in as a separate document.cookie and seems to
 have an issue overwriting cookies that website has put in place.
-It can functionally overwrite its own cookies.*/
+It can overwrite its own cookies.*/
 document.cookie = "startmarker=****THIS IS THE START OF THE EDITED COOKIE STRING****";
 for (var i=0;i<allcookie.length;i++)
 {

@@ -1,27 +1,6 @@
  # Global Consent Cookie Sandbox
 
- This public repository is used to publish a FireFox web extension.
- 
- ## How to install this web extension
- 
- 1. Download and unzip the package to a desired folder.<br />
- 2. Press Ctrl+Shift+A anywhere on Firefox <br />
- 3. Select the puzzle piece on your left to go to your Extensions menu<br />
- 4. Click the gear top of your window and select "Debug Add-ons"<br />
- 5. Make sure the "Enable Add-on Debugging" box is checked<br />
- 6. Click "Load Temporary Add-On<br />
- 7. Navigate to your manifest file and open it.<br />
- 8. Enjoy the extension and submit any error reports to this Issues page!
- 
- ## API information
- 
- APIs used for the project are provided by Mozilla MDN and can be found at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API
- 
- APIs used:
- 
- -cookies<br />
- -tabs<br />
- -browsingData (for debugging)
+ This repository is no longer used. Please refer to https://github.com/Nebrethar/Global-Consent-Cookie-Sandbox
  
  ## Licensing and Copyright
  
